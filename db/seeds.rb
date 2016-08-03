@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+# menu = Menu.first
+# user = User.create(first_name: "user5",last_name:"user5",email:"user@user.com",password:"pass")
+# Comenzi.create(user: user, meniu: menu)

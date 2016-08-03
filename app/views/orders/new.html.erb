@@ -1,0 +1,12 @@
+<div class="login">
+  <div class="container">
+    <div class="form">
+	    <h1>Take my order</h1>
+	    <%= form_for @order do |f| %>
+	 			<%= f.select(:menu, Menu.all.collect {|a| [a.title, a.id]}) %>
+	 			<%= f.select(:user, User.all.collect {|b| [b.first_name, b.id]}) %>
+		  	<%= f.submit "I want this", class: "btn-submit" %>
+ 			<% end %>
+    </div>
+  </div>
+</div>
