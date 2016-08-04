@@ -7,7 +7,7 @@
     <th>Felul_1</th>
     <th>Felul_2</th>
     <th>Desert</th>
-    <th colspan="3"></th>
+    <th colspan="4"></th>
   </tr>
 <p style="display:none"><%= i=1 %></p>
 <% @menus.each do |menu| %>
@@ -19,16 +19,15 @@
       <td><%= menu.desert %></td>
       <td><%= link_to 'Show', menu_path(menu) %></td>
       <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
-       <td><%= link_to 'Destroy', menu_path(menu),
+      <td><%= link_to 'Destroy', menu_path(menu),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Order', new_order_path %></td>
     </tr>
     <p style="display:none"><%= i+=1 %></p>
   <% end %>
   </table>
-
- <br>
-
+<br />
    <table>
     <tr>
     <th>ID</th>

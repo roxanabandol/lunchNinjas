@@ -17,7 +17,6 @@
  html, body {
   background: #fff;
   font-family: Arial, sans-serif;
-  font-weight: bold;
   margin: 0;
   padding: 0;
 }
@@ -166,6 +165,7 @@ input[type=password] {
   padding: 10px 20px;
   border: 0;
   margin-top: 6px;
+  cursor: pointer;
 }
   
 /*  RESPONSIVE */

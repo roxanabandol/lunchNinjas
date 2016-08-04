@@ -1,11 +1,11 @@
 class MenusController < ApplicationController
 	def index
-		#meniurile
 		@menus = Menu.all
 	end
 
  	def show
 		@menu = Menu.find(params[:id])
+		@user = @menu.users
 	end
 
 	def new
@@ -27,13 +27,13 @@ class MenusController < ApplicationController
 
 	def update
   @menu = Menu.find(params[:id])
- 
-  if @menu.update(menu_params)
-    redirect_to @menu
-  else
-    render 'edit'
-  end
-end
+	 
+	  if @menu.update(menu_params)
+	    redirect_to @menu
+	  else
+	    render 'edit'
+	  end
+	end
 
  def destroy
     @menu = Menu.find(params[:id])
@@ -42,12 +42,8 @@ end
     redirect_to menus_path
   end
 
-  
-
-
-private
-  def menu_params
-    params.require(:menu).permit(:title, :d1, :d2, :desert)
-  end
-
+	private
+	  def menu_params
+	    params.require(:menu).permit(:title, :d1, :d2, :desert)
+	  end
 end
