@@ -43,8 +43,8 @@
     <% @orders.each do |ord| %>
     <tr>
       <td><%= i %></td>
-      <td><%= ord.user %></td>
-      <td><%= ord.menu %></td>
+      <td><%= ord.user.first_name %></td>
+      <td><%= ord.menu.title %></td>
     </tr>
     <p style="display:none"><%= i+=1 %></p>
   <% end %>
