@@ -1,6 +1,7 @@
 class MenusController < ApplicationController
 	def index
 		@menus = Menu.all
+		@orders = Order.all
 	end
 
  	def show

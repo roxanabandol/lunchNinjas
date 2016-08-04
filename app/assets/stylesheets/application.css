@@ -21,7 +21,7 @@
   padding: 0;
 }
 
-.container {
+.continer {
   padding: 0;
   width: 100%;
 }
@@ -135,7 +135,9 @@
 }
 
 /* FORM PAGES */
-
+table th {
+  text-align: left;
+}
 
 .form, .login {
   text-align:center;

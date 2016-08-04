@@ -23,6 +23,6 @@ class OrdersController < ApplicationController
 
 	private
 	  def order_params
-	    params.require(:order).permit(:user,:menu)
+	    params.require(:order).permit(:menu_id,:user_id)
 	  end
 end
