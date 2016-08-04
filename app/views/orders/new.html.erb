@@ -3,7 +3,11 @@
     <div class="form">
 	    <h1>Take my order</h1>
 	    <%= form_for @order do |f| %>
+<<<<<<< HEAD
 	 			<%= f.collection_select :menu_id, Menu.all, :id, :title %>
+=======
+	 			<%= f.select(:menu_id, Menu.all.collect {|a| [a.title, a.id]}) %>
+>>>>>>> a869527c7acbf4dd4d4f550737f6acaa8f30218a
 	 			<%= f.hidden_field :user_id, value: current_user.id %>
 		  	<%= f.submit "I want this", class: "btn-submit" %>
  			<% end %>
