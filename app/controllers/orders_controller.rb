@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
 	end
 
 	def create
-  	@order = Order.new(order_params) 
+  	@order = Order.new(order_params)
 	  if @order.save
 	  	redirect_to @order
 		else
@@ -23,6 +23,6 @@ class OrdersController < ApplicationController
 
 	private
 	  def order_params
-	    params.require(:order).permit(:user,:menu)
+	    params.require(:order).permit(:user_id,:menu_id)
 	  end
 end
