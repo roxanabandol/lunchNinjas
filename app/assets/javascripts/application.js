@@ -14,3 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).ready(function(){
+	$('p#users').click(function(){
+		if ($('table#users').css('display')==='none') {
+			$('table').hide(0);
+			$('table#users').show(0);
+		}
+		else {
+			$('table').show(0);
+			$('table#users').hide(0);
+		}
+	})
+})

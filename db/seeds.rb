@@ -8,3 +8,8 @@
 # menu = Menu.first
 # user = User.create(first_name: "user5",last_name:"user5",email:"user@user.com",password:"pass")
 # Comenzi.create(user: user, meniu: menu)
+user = User.new
+user.email = "test@test.com"
+user.password = "12345"
+user.role = user.set_admin_role
+user.save

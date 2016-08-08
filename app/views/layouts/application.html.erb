@@ -7,9 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	
 <% if current_user %> 
   <ul class = "login"> 
+    <li><%= link_to 'Editeaza', edit_user_path(current_user.id) %></li>
     <li><%= current_user.email %></li> 
     <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
   </ul> 

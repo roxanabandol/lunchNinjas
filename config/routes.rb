@@ -1,17 +1,23 @@
 Rails.application.routes.draw do
  # get 'welcome/index'
-
+  
+  # Generate a properly formatted 404 error for all unmatched routes except '/'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  get 'signup' => 'users#new'
+  resources :orders
   resources :users
   resources :menus
+  get 'signup' => 'users#new'
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  get 'order' => 'orders#new'
+  post 'order' => 'orders#create'
+  get 'user' => 'user#index'
+  # post 'comenzi' => 'comenzi#create'
   
   # You can have the root of your site routed with "root"
-  root 'menus#index'
+  #root 'menus#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -54,7 +60,7 @@ Rails.application.routes.draw do
   #   end
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
-
+  mount Lunch::API => '/'
   # Example resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController

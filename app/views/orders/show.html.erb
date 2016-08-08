@@ -1,3 +1,2 @@
-<p><b>Status: </b><%= @order.status %></p>
-<p><b>User: </b><%= @order.user %></p>
-<p><b>Meniu: </b><%= @order.menu %></p>
+<p><b><%= @order.user.first_name %></b> a comandat <b><%= @order.menu.title %></b>, iar comanda este <b><%= @order.status %></b>.</p>
+<%= link_to 'Inapoi', '/menus' %>

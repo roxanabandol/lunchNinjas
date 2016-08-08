@@ -3,13 +3,15 @@ class OrdersController < ApplicationController
 		@orders = Order.all
 	end
 
+	def new
+		@order = Order.new
+	end
+	def edit
+		@order = Order.find(params[:id])
+	end
 	def show
 		@order = Order.find(params[:id])
 		@menu = @order.menu
-	end
-
-	def new
-		@order = Order.new
 	end
 
 	def create
@@ -20,9 +22,22 @@ class OrdersController < ApplicationController
 			render 'new'
 		end
 	end
-
+	def update
+  @order = Order.find(params[:id])
+	@menu = @order.menu
+	  if @order.update(order_params)
+	    redirect_to '/menus'
+	  else
+	    render 'edit'
+	  end
+	end
+	def destroy
+    @order= Order.find(params[:id])
+    @order.destroy
+    redirect_to '/menus'
+  end
 	private
 	  def order_params
-	    params.require(:order).permit(:user,:menu)
+	    params.require(:order).permit(:status,:user_id,:menu_id)
 	  end
 end

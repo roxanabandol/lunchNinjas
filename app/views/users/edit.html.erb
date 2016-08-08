@@ -1,0 +1,39 @@
+<%= form_for @user do |f| %>
+	<% if @user.errors.any? %>
+	<div id="error_explanation">
+				      <h2>
+				        <%= pluralize(@user.errors.count, 'error') %> prohibited
+				        this user from being saved:
+				      </h2>
+				      <ul>
+				        <% @user.errors.full_messages.each do |msg| %>
+				          <li><%= msg %></li>
+				        <% end %>
+				      </ul>
+				    </div>
+				    
+				    <% else %>
+				    <p>nothing here</p>
+				    <p>no errors</p>
+			  	<% end %>
+	<%= f.text_field :first_name, :placeholder => "Prenume" %>
+	<%= f.text_field :last_name, :placeholder => "Nume" %>
+	<%= f.email_field :email, :placeholder => "Email" %>
+	<%= f.password_field :password, :placeholder => "Parola"  %>
+	<%= f.text_field :phone, :placeholder => "Numar telefon" %>
+	<%= f.text_field :address, :placeholder => "Adresa" %>
+	<%= @user.role %>
+	<% if current_user %>
+		<% if current_user.is_admin? && current_user.email != @user.email %>
+			<% if @user.role != 'admin' %>
+			  <%= f.hidden_field :role, value: "admin" %>
+			  <%= f.submit "Make ADMIN" %>
+			<% else %>
+			  <%= f.hidden_field :role, value: "user" %>
+				<%= f.submit "Make USER" %>
+			<% end %>
+		<% end %>
+		<%= f.submit "Submit" %>
+	<% end %>
+<% end %>
+<%= link_to 'Inapoi', menus_path %>
